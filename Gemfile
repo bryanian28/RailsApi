@@ -22,6 +22,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # add this code then bundle install
+gem 'bcrypt', '~> 3.1.13'
 
 gem 'mysql2', '~> 0.3.18'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+gem 'jwt'

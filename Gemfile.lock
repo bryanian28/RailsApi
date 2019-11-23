@@ -39,6 +39,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (8.0.0)
+    bcrypt (3.1.13)
     builder (3.2.3)
     byebug (11.0.1)
     concurrent-ruby (1.1.5)
@@ -48,6 +49,7 @@ GEM
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.6)
+    jwt (2.2.1)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -110,8 +112,10 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bcrypt (~> 3.1.13)
   byebug
   faker
+  jwt
   mysql2 (~> 0.3.18)
   puma (~> 3.7)
   rack-cors
