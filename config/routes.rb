@@ -1,21 +1,9 @@
 Rails.application.routes.draw do
-  namespace :api do
-    namespace :v1 do
-      get 'tokens/create'
-      resources :tokens, only: [:create]
-    end
-  end
 
-  namespace :api do
-    namespace :v1 do
-      # get 'users/create'
-      resources :users
-    end
-  end
+  resources :users, param: :_username
+  post '/login', to: 'authentication#login'
+  # get '/*a', to: 'application#not_found'
+  # get 'users/create'
+  resources :articles
 
-  namespace 'api' do
-    namespace 'v1' do
-      resources :articles
-    end
-  end
 end

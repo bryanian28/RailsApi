@@ -1,7 +1,5 @@
-module Api
-    module V1
       class ArticlesController < ApplicationController
-        before_action :set_headers
+        before_action :authorize_request
 
         def index
             articles = Article.order('created_at DESC');
@@ -37,18 +35,14 @@ module Api
                   render json: {status: 'ERROR', message:'Article not updated', data:article.errors},status: :unprocessable_entity
                 end
               end
-        # THIS
-        def set_headers
-            headers['Access-Control-Allow-Origin'] = '*'
-            headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, PATCH, OPTIONS'
-            headers['Access-Control-Request-Method'] = '*'
-            headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-          end
-            private
 
+
+            private
             def article_params
               params.permit(:title, :description)
             end
+            def login_params
+              params.permit(:username, :password)
+            end
           end
-        end
-      end
+
